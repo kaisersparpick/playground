@@ -2,7 +2,7 @@
 
 This is an experiment to mimic the behaviour of **const methods in C++**. 
 
-When a function is called with the `callAsReadonly` extension method, it has read-only access to the instance (object properties become immutable). When an attempt is made to write to a property, an exception is thrown. 
+When a function is called with the `callAsReadonly` extension method, it has readonly access to the instance (object properties become immutable). When an attempt is made to write to a property, an exception is thrown. 
 
 ### Usage
 ```javascript
@@ -34,12 +34,12 @@ function myExceptionHandler(err) {
 }
 registerCallAsReadonly(myExceptionHandler);
 
-let app = new App('Const method test', 1);
+let app = new App('test', 1);
 
 // Incrementing version...
 app.incrementVersion();
-// Calling same method as const... An exception is thrown
-app.incrementVersion.callAsConst(app);
+// Calling same method as readonly... An exception is thrown
+app.incrementVersion.callAsReadonly(app);
 ```
 
 See the [sample application](https://stackblitz.com/edit/react-7um1jz) in action.
